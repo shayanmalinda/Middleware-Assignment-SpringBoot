@@ -15,6 +15,7 @@ import org.springframework.web.servlet.view.RedirectView;
 @CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 public class UserController {
 
+    //homoe page mapping
     @GetMapping("/")
     public ModelAndView getUsers() {
         RestTemplate restTemplate = new RestTemplate();
@@ -32,6 +33,7 @@ public class UserController {
         return modelAndView;
     }
 
+    //add new user
     @RequestMapping("/addUser")
     public RedirectView addUser(User user) {
         RestTemplate restTemplate = new RestTemplate();
@@ -40,6 +42,7 @@ public class UserController {
         return new RedirectView("/");
     }
 
+    //get user by userId
     @RequestMapping("/getUser")
     public ModelAndView getUser(@RequestParam(value = "id") int userId) {
         RestTemplate restTemplate = new RestTemplate();
@@ -50,6 +53,7 @@ public class UserController {
         return modelAndView;
     }
 
+    //delete user by userId
     @RequestMapping("/deleteUser/{id}")
     public RedirectView deleteUser(@PathVariable String id) {
         RestTemplate restTemplate = new RestTemplate();
@@ -58,6 +62,7 @@ public class UserController {
         return new RedirectView("/");
     }
 
+    //update user by userId
     @RequestMapping("/updateUser")
     public RedirectView updateUser(User user, HttpServletRequest req) {
         System.out.println(user);
@@ -69,18 +74,18 @@ public class UserController {
         return new RedirectView("/");
     }
 
+    //navigate to add new user
     @RequestMapping("/addUserUI")
     public String AddUser() {
         System.out.println("addUser");
         return "AddUser";
     }
 
+    //cancel form
     @RequestMapping("/cancel")
     public RedirectView cancel() {
         return new RedirectView("/");
     }
-
-
 
 
 }
