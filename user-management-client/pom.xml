@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>libraryfrontend</artifactId>
+    <artifactId>user-management-frontend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>libraryfrontend</name>
+    <name>user-management-frontend</name>
     <packaging>war</packaging>
 
     <description>Demo project for Spring Boot</description>
@@ -120,7 +120,7 @@
     </dependencies>
 
     <build>
-        <finalName>library-system</finalName>
+        <finalName>user-management</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
