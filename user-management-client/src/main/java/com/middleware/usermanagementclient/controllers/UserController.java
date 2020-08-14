@@ -76,7 +76,7 @@ public class UserController {
     }
 
     @RequestMapping("/cancel")
-    public RedirectView cancelAddBook() {
+    public RedirectView cancel() {
         return new RedirectView("/");
     }
 
