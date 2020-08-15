@@ -23,16 +23,40 @@ public class User {
 	
 	@Column(name = "email")
 	private String email;
+
+	@Column(name = "phoneNo")
+	private String phoneNo;
+
+	@Column(name = "nic")
+	private String nic;
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+	public String getNic() {
+		return nic;
+	}
+
+	public void setNic(String nic) {
+		this.nic = nic;
+	}
 	
 	public User() {
 		
 	}
 	
-	public User(String firstName, String lastName, String email) {
+	public User(String firstName, String lastName, String email, String phoneNo, String nic) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.nic = nic;
+		this.phoneNo = phoneNo;
 	}
 	
 	public long getId() {

@@ -52,6 +52,8 @@ public class UserController {
 		existingUser.setFirstName(user.getFirstName());
 		existingUser.setLastName(user.getLastName());
 		existingUser.setEmail(user.getEmail());
+		existingUser.setNic(user.getNic());
+		existingUser.setPhoneNo(user.getPhoneNo());
 		return this.userRepository.save(existingUser);
 	}
 	

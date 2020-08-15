@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 </head>
 
-<body>
+<body  style="background-color: #F7F7F7">
 <div class="container">
-    <div style="text-align: center; margin-top: 90px; margin-bottom: 40px"><h2>Update User</h2></div>
-    <div class="row">
+    <div class="row" style="margin-top: 40px">
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="card" style="padding: 20px 30px">
+                <div style="text-align: center; margin-top: 0px; margin-bottom: 20px"><h2>Edit User</h2></div>
                 <form class="form-group" action="updateUser">
                     <input id="id" name="id" type="hidden" value="${User.id}"/>
                     <label for="name">First Name</label>
@@ -24,12 +24,16 @@
                     <input class="form-control" type="text" name="lastName" value="${User.lastName}"><br>
                     <label for="name">Email</label>
                     <input class="form-control" type="text" name="email" value="${User.email}"><br>
+                    <label for="name">Phone Number</label>
+                    <input class="form-control" type="text" name="phoneNo" value="${User.phoneNo}"><br>
+                    <label for="name">NIC Number</label>
+                    <input class="form-control" type="text" name="nic" value="${User.nic}"><br>
                     <div class="row">
+                        <div class="col-md-8">
+                            <button class="btn btn-success" type="submit" style="width:100%">Save User</button>
+                        </div>
                         <div class="col-md-4 pr-2">
                             <a class="btn btn-danger" href="/cancel" style="width:100%">Cancel </a>
-                        </div>
-                        <div class="col-md-8">
-                            <button class="btn btn-success" type="submit" style="width:100%">Update</button>
                         </div>
                     </div>
                 </form>

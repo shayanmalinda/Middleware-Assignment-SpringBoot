@@ -7,6 +7,12 @@ public class User {
 
 	private long id;
 
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String phoneNo;
+	private String nic;
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -23,10 +29,6 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	private String firstName;
-	private String lastName;
-	private String email;
-	private String phone_no;
 
 	public long getId() {
 		return id;
@@ -44,11 +46,19 @@ public class User {
 		this.email = email;
 	}
 
-	public String getPhone_no() {
-		return phone_no;
+	public String getPhoneNo() {
+		return phoneNo;
 	}
 
-	public void setPhone_no(String phone_no) {
-		this.phone_no = phone_no;
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+	public String getNic() {
+		return nic;
+	}
+
+	public void setNic(String nic) {
+		this.nic = nic;
 	}
 }

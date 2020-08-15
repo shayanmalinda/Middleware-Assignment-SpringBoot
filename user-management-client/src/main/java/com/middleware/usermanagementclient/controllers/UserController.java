@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.RedirectView;
 @CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 public class UserController {
 
-    //homoe page mapping
+    //home page mapping
     @GetMapping("/")
     public ModelAndView getUsers() {
         RestTemplate restTemplate = new RestTemplate();
@@ -23,11 +23,7 @@ public class UserController {
         String url = "http://localhost:8081/api/users";
         HttpEntity<String> entity = new HttpEntity<String>(headers);
         ResponseEntity<Object> response = restTemplate.exchange(url, HttpMethod.GET, entity, Object.class);
-        if (response.getStatusCode() == HttpStatus.OK) {
-            System.out.println(response.getBody());
-        } else {
-            System.out.println("Error");
-        }
+
         ModelAndView modelAndView = new ModelAndView("ViewUsers");
         modelAndView.addObject("User", response.getBody());
         return modelAndView;
@@ -65,9 +61,7 @@ public class UserController {
     //update user by userId
     @RequestMapping("/updateUser")
     public RedirectView updateUser(User user, HttpServletRequest req) {
-        System.out.println(user);
         String userId = req.getParameter("id");
-        System.out.println(userId);
         RestTemplate restTemplate = new RestTemplate();
         String url = "http://localhost:8081/api/users/" + userId;
         restTemplate.put(url, user);
