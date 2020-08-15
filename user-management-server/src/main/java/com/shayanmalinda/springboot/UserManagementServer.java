@@ -7,14 +7,14 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @SpringBootApplication
-public class CrudRestfulWebservicesApplication  extends SpringBootServletInitializer {
+public class UserManagementServer extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CrudRestfulWebservicesApplication.class, args);
+		SpringApplication.run(UserManagementServer.class, args);
 	}
 
 	public SpringApplicationBuilder configure(SpringApplicationBuilder builder){
-		return builder.sources(CrudRestfulWebservicesApplication.class);
+		return builder.sources(UserManagementServer.class);
 	}
 
 
