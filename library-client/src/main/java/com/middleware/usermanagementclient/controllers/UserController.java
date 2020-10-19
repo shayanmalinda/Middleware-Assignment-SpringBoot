@@ -1,6 +1,7 @@
 package com.middleware.usermanagementclient.controllers;
 
 import com.middleware.usermanagementclient.entity.Book;
+import com.middleware.usermanagementclient.entity.Issue;
 import com.middleware.usermanagementclient.entity.User;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Controller
 @CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
@@ -99,11 +103,6 @@ public class UserController {
 
 
 
-
-
-
-
-
     //view books mapping
     @GetMapping("/books")
     public ModelAndView getBooks() {
@@ -169,6 +168,92 @@ public class UserController {
     @RequestMapping("/cancelBook")
     public RedirectView cancelBook() {
         return new RedirectView("/books");
+    }
+
+
+
+
+
+
+
+
+
+
+    //view issues mapping
+    @GetMapping("/issues")
+    public ModelAndView getIssues() {
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        String url = "http://localhost:8081/api/issues";
+        HttpEntity<String> entity = new HttpEntity<String>(headers);
+        ResponseEntity<Object> response = restTemplate.exchange(url, HttpMethod.GET, entity, Object.class);
+        System.out.println(response.getBody());
+        ModelAndView modelAndView = new ModelAndView("ViewIssues");
+        modelAndView.addObject("Issue", response.getBody());
+        return modelAndView;
+    }
+
+    //add new issue
+    @RequestMapping("/addIssue")
+    public RedirectView addIssue(Issue issue) {
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "http://localhost:8081/api/issues";
+
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+        Date date = new Date();
+
+        issue.setDate(dateFormat.format(date));
+        issue.setTime(timeFormat.format(date));
+
+
+        restTemplate.postForEntity(url, issue, Object.class);
+        return new RedirectView("/issues");
+    }
+
+    //get issue by issueId
+    @RequestMapping("/getIssue")
+    public ModelAndView getIssue(@RequestParam(value = "id") int issueId) {
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "http://localhost:8081/api/issues/" + issueId;
+        Object object = restTemplate.getForObject(url, Object.class);
+        ModelAndView modelAndView = new ModelAndView("UpdateIssue");
+        modelAndView.addObject("Issue", object);
+        return modelAndView;
+    }
+
+    //delete issue by issueId
+    @RequestMapping("/deleteIssue/{id}")
+    public RedirectView deleteIssue(@PathVariable String id) {
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "http://localhost:8081/api/issues/" + id;
+        restTemplate.delete(url);
+        return new RedirectView("/issues");
+    }
+
+    //update issue by issueId
+    @RequestMapping("/updaetIssue")
+    public RedirectView updateIssue(Issue issue, HttpServletRequest req) {
+        String issueId = req.getParameter("id");
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "http://localhost:8081/api/issues/" + issueId;
+        restTemplate.put(url, issue);
+        return new RedirectView("/issues");
+    }
+
+    //navigate to add new issue
+    @RequestMapping("/addIssueUI")
+    public String AddIssue() {
+        System.out.println("addIssueUI");
+        return "AddIssue";
+    }
+
+
+    //cancel form
+    @RequestMapping("/cancelIssue")
+    public RedirectView cancelIssue() {
+        return new RedirectView("/issues");
     }
 
 

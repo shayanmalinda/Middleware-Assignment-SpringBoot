@@ -47,11 +47,13 @@
         <div class="col-md-4">
             <div class="card" style="width: 18rem;">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_QqFrd8y8j87FWJ0_lNIBdv8CjTaSH3QlWQ&usqp=CAU" class="card-img-top" alt="..." style="Height: 282px;padding: 55px 40px 35px 40px">
-                <div class="card-body">
-                    <h5 class="card-title">Book Issue</h5>
-                    <p class="card-text">Issue the available books in the Library to Users</p>
-                    <button class="btn btn-success" type="submit" style="width: 100%">Issue Book</button>
-                </div>
+                <form class="form-group" action="/issues">
+                    <div class="card-body">
+                        <h5 class="card-title">Book Issue</h5>
+                        <p class="card-text">Issue the available books in the Library to Users</p>
+                        <button class="btn btn-success" type="submit" style="width: 100%">Issue Book</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

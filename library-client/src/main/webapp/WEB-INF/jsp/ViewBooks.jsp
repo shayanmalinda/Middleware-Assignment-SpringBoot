@@ -12,7 +12,13 @@
 </head>
 <body style="background-color: #F7F7F7">
 <div class="container-fluid">
-    <div style="text-align: center; margin-top: 30px; margin-bottom: 30px"><h2>Book Management</h2></div>
+    <div class="row" style="text-align: center; margin-top: 30px; margin-bottom: 30px">
+
+        <div class="col-md-1"><a href="/"><i class="fa fa-3x fa-home"></i></a></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-6"><div><h2>Books Management</h2></div></div>
+        <div class="col-md-3"></div>
+    </div>
 
     <div class="row">
         <div class="col-md-12">
@@ -21,7 +27,7 @@
                 <form action="/addBookUI" class="mb-5">
                     <div class="row">
                         <div class="col-md-5"></div>
-                        <div class="col-md-2 mt-2"><button type="submit" class="btn btn-success" style="width: 100%"><i class="fas fa-user-plus mr-2"></i>Add New Book</button></div>
+                        <div class="col-md-2 mt-2"><button type="submit" class="btn btn-success" style="width: 100%"><i class="fas fa-plus-square mr-2"></i>Add New Book</button></div>
                         <div class="col-md-5"></div>
                     </div>
                 </form>
@@ -46,17 +52,16 @@
                                         <td>${book.count}</td>
                                         <td>
                                             <form action="getBook" method="get">
-                                                <button class="btn btn-success" style="width: 85%" name="id" value="${book.id}"><i class="fas fa-user-edit mr-2"></i>Edit</button>
+                                                <button class="btn btn-success" style="width: 85%" name="id" value="${book.id}">Edit</button>
                                             </form>
                                         </td>
-                                        <td><a class="btn btn-danger" style="width: 70%" href="/deleteBook/${book.id}"><i class="fas fa-user-times mr-2"></i>Delete</a></td>
+                                        <td><a class="btn btn-danger" style="width: 70%" href="/deleteBook/${book.id}">Delete</a></td>
 
                                     </tr>
                                 </c:forEach>
                             </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
         </div>
