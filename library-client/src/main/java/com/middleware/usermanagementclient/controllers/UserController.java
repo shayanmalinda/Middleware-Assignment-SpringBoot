@@ -32,7 +32,7 @@ public class UserController {
     public ModelAndView getUsers() {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
-        String url = "http://localhost:8081/api/users";
+        String url = "http://localhost:8080/library-server/api/users";
         HttpEntity<String> entity = new HttpEntity<String>(headers);
         ResponseEntity<Object> response = restTemplate.exchange(url, HttpMethod.GET, entity, Object.class);
         System.out.println(response.getBody());
@@ -45,7 +45,7 @@ public class UserController {
     @RequestMapping("/addUser")
     public RedirectView addUser(User user) {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8081/api/users";
+        String url = "http://localhost:8080/library-server/api/users";
         restTemplate.postForEntity(url, user, Object.class);
         return new RedirectView("/users");
     }
@@ -54,7 +54,7 @@ public class UserController {
     @RequestMapping("/getUser")
     public ModelAndView getUser(@RequestParam(value = "id") int userId) {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8081/api/users/" + userId;
+        String url = "http://localhost:8080/library-server/api/users/" + userId;
         Object object = restTemplate.getForObject(url, Object.class);
         ModelAndView modelAndView = new ModelAndView("UpdateUser");
         modelAndView.addObject("User", object);
@@ -65,7 +65,7 @@ public class UserController {
     @RequestMapping("/deleteUser/{id}")
     public RedirectView deleteUser(@PathVariable String id) {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8081/api/users/" + id;
+        String url = "http://localhost:8080/library-server/api/users/" + id;
         restTemplate.delete(url);
         return new RedirectView("/users");
     }
@@ -75,7 +75,7 @@ public class UserController {
     public RedirectView updateUser(User user, HttpServletRequest req) {
         String userId = req.getParameter("id");
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8081/api/users/" + userId;
+        String url = "http://localhost:8080/library-server/api/users/" + userId;
         restTemplate.put(url, user);
         return new RedirectView("/users");
     }
@@ -108,7 +108,7 @@ public class UserController {
     public ModelAndView getBooks() {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
-        String url = "http://localhost:8081/api/books";
+        String url = "http://localhost:8080/library-server/api/books";
         HttpEntity<String> entity = new HttpEntity<String>(headers);
         ResponseEntity<Object> response = restTemplate.exchange(url, HttpMethod.GET, entity, Object.class);
         System.out.println(response.getBody());
@@ -121,7 +121,7 @@ public class UserController {
     @RequestMapping("/addBook")
     public RedirectView addBook(Book book) {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8081/api/books";
+        String url = "http://localhost:8080/library-server/api/books";
         restTemplate.postForEntity(url, book, Object.class);
         return new RedirectView("/books");
     }
@@ -130,7 +130,7 @@ public class UserController {
     @RequestMapping("/getBook")
     public ModelAndView getBook(@RequestParam(value = "id") int bookId) {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8081/api/books/" + bookId;
+        String url = "http://localhost:8080/library-server/api/books/" + bookId;
         Object object = restTemplate.getForObject(url, Object.class);
         ModelAndView modelAndView = new ModelAndView("UpdateBook");
         modelAndView.addObject("Book", object);
@@ -141,7 +141,7 @@ public class UserController {
     @RequestMapping("/deleteBook/{id}")
     public RedirectView deleteBook(@PathVariable String id) {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8081/api/books/" + id;
+        String url = "http://localhost:8080/library-server/api/books/" + id;
         restTemplate.delete(url);
         return new RedirectView("/books");
     }
@@ -151,7 +151,7 @@ public class UserController {
     public RedirectView updateBook(Book book, HttpServletRequest req) {
         String bookId = req.getParameter("id");
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8081/api/books/" + bookId;
+        String url = "http://localhost:8080/library-server/api/books/" + bookId;
         restTemplate.put(url, book);
         return new RedirectView("/books");
     }
@@ -184,7 +184,7 @@ public class UserController {
     public ModelAndView getIssues() {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
-        String url = "http://localhost:8081/api/issues";
+        String url = "http://localhost:8080/library-server/api/issues";
         HttpEntity<String> entity = new HttpEntity<String>(headers);
         ResponseEntity<Object> response = restTemplate.exchange(url, HttpMethod.GET, entity, Object.class);
         System.out.println(response.getBody());
@@ -197,7 +197,7 @@ public class UserController {
     @RequestMapping("/addIssue")
     public RedirectView addIssue(Issue issue) {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8081/api/issues";
+        String url = "http://localhost:8080/library-server/api/issues";
 
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -216,7 +216,7 @@ public class UserController {
     @RequestMapping("/getIssue")
     public ModelAndView getIssue(@RequestParam(value = "id") int issueId) {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8081/api/issues/" + issueId;
+        String url = "http://localhost:8080/library-server/api/issues/" + issueId;
         Object object = restTemplate.getForObject(url, Object.class);
         ModelAndView modelAndView = new ModelAndView("UpdateIssue");
         modelAndView.addObject("Issue", object);
@@ -227,7 +227,7 @@ public class UserController {
     @RequestMapping("/deleteIssue/{id}")
     public RedirectView deleteIssue(@PathVariable String id) {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8081/api/issues/" + id;
+        String url = "http://localhost:8080/library-server/api/issues/" + id;
         restTemplate.delete(url);
         return new RedirectView("/issues");
     }
@@ -237,7 +237,7 @@ public class UserController {
     public RedirectView updateIssue(Issue issue, HttpServletRequest req) {
         String issueId = req.getParameter("id");
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:8081/api/issues/" + issueId;
+        String url = "http://localhost:8080/library-server/api/issues/" + issueId;
         restTemplate.put(url, issue);
         return new RedirectView("/issues");
     }

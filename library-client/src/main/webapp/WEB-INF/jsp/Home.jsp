@@ -22,8 +22,8 @@
     <div class="row" style="margin-top: 120px">
         <div class="col-md-4">
             <div class="card" style="width: 18rem;">
-            <img src="https://lh3.googleusercontent.com/proxy/wzWu9Wh9bSvCOr1CJCtiTZgczABWMX-JseAIvkRjJ9_ocIWU1BcT_X80YyvCn3cxhtGbnEL9XZOF7PE3cMov_Z4jiB3_6t9_LART1EoLFU_4HEcT3QBUgYxGA1EsntJ5wKuADQ0ge0ga7b7xoocF" class="card-img-top" alt="..." style="padding: 31px 30px 25px 30px">
-            <form class="form-group" action="/users">
+            <img src="http://www.myiconfinder.com/uploads/iconsets/256-256-2874c29b56e4c8e8f5418c8c8d9109a5-users.png" class="card-img-top" alt="..." style="padding: 31px 30px 25px 30px">
+            <form class="form-group" action="/library-client/users">
                 <div class="card-body">
                     <h5 class="card-title">Users</h5>
                     <p class="card-text">Manage user who are using the Library</p>
@@ -35,7 +35,7 @@
         <div class="col-md-4">
             <div class="card" style="width: 18rem;">
                 <img src="https://static.vecteezy.com/system/resources/previews/001/200/145/non_2x/books-png.png" class="card-img-top" alt="..." style="Height: 282px;padding: 55px 40px 35px 40px">
-                <form class="form-group" action="/books">
+                <form class="form-group" action="/library-client/books">
                     <div class="card-body">
                         <h5 class="card-title">Books</h5>
                         <p class="card-text">Manage books currently available in the Library</p>
@@ -47,7 +47,7 @@
         <div class="col-md-4">
             <div class="card" style="width: 18rem;">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_QqFrd8y8j87FWJ0_lNIBdv8CjTaSH3QlWQ&usqp=CAU" class="card-img-top" alt="..." style="Height: 282px;padding: 55px 40px 35px 40px">
-                <form class="form-group" action="/issues">
+                <form class="form-group" action="/library-client/issues">
                     <div class="card-body">
                         <h5 class="card-title">Book Issue</h5>
                         <p class="card-text">Issue the available books in the Library to Users</p>

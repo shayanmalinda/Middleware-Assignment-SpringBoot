@@ -49,7 +49,7 @@
                                         <td>${issue.name}</td>
                                         <td>${issue.date}</td>
                                         <td>${issue.time}</td>
-                                        <td><a class="btn btn-danger" style="width: 70%" href="/deleteIssue/${issue.id}">Delete</a></td>
+                                        <td><a class="btn btn-success" style="width: 70%" href="/deleteIssue/${issue.id}">Return</a></td>
 
                                     </tr>
                                 </c:forEach>
